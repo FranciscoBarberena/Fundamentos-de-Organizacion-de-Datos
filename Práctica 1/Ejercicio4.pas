@@ -197,6 +197,46 @@ Begin
   Else writeln('El empleado no esta cargado')
 End;
 
+procedure exportarAArchivoDeTexto(var archivoBinario: archivoEmp);
+var
+  archivoTexto: Text;
+  nombreArchText: string;
+  e: empleado;
+begin
+  write('Ingresar nombre del archivo de texto (incluir extensión .txt): ');
+  readln(nombreArchText);
+  assign(archivoTexto,nombreArchText);
+  reset(archivoBinario);
+  rewrite(archivoTexto);
+  writeln(archivoTexto, '--- LISTA DE EMPLEADOS ---'');
+  while (not eof(archivoBinario)) do begin
+    read(archivoBinario,e);
+    writeln(archivoTexto,e.apellido, ' ',e.nombre,' ', e.edad,' ',e.numero,' ',e.DNI);
+  end;
+  close(archivoBinario);
+  close(archivoTexto);
+
+end;
+
+procedure exportarSinDni(var archivoBinario: archivoEmp);
+var
+  textoSinDni: Text;
+  e: empleado;
+begin
+  reset(archivoBinario);
+  assign(textoSinDni,'faltaDNIEmpleado.txt');
+  rewrite(textoSinDni);
+  writeln(textoSinDni,'--- LISTA DE EMPLEADOS SIN DNI ---');
+  While (Not eof(archivoBinario)) Do
+  Begin
+    read(archivoBinario,e);
+    if (e.DNI = 0) then
+      writeln(textoSinDni,e.apellido, ' ',e.nombre,' ', e.edad,' ',e.numero,' ',e.DNI);
+  End;
+  close(archivoBinario);
+  close(textoSinDni);
+end;
+
 Procedure mostrarSubOpciones(Var archivo: archivoEmp);
 
 Var 
@@ -208,7 +248,7 @@ Begin
   reset(archivo);
   opcionValida := false;
   writeln('Seleccione la operacion deseada:',#13#10,'1: Buscar un empleado.',#13#10,'2: Listar todos los empleados.',#13#10,'3: Listar todos los empleados mayores de 70 anios.',
-          #13#10,'4: Agregar empleados.',#13#10,'5: Modficar una edad.');
+          #13#10,'4: Agregar empleados.',#13#10,'5: Modficar una edad.',#13#10,'6: Exportar a archivo de texto.',#13#10,'7: Exportar a archivo de texto aquellos empleados sin DNI.');
   readln(opcionElegida);
   While (Not opcionValida) Do
     Begin
@@ -243,11 +283,19 @@ Begin
 
              modificarEdad(archivo)
            End;
-
+        6:
+           Begin
+             opcionValida := true;
+             exportarAArchivoDeTexto(archivo);
+           End;
+           7: begin
+             opcionValida:= true;
+             exportarSinDni(archivo);
+           end;
         Else
           Begin
 
-            writeln('Ingrese un numero valido (entre 1 y 5).');
+            writeln('Ingrese un numero valido (entre 1 y 7).');
             readln(opcionElegida);
           End;
       End;
@@ -259,6 +307,7 @@ Var
   miArchivo: archivoEmp;
   opcionElegida: integer;
   opcionValida: boolean;
+
 Begin
   nombrarArchivo(miArchivo);
   opcionValida := false;
