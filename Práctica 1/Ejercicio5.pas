@@ -90,11 +90,11 @@ Begin
 
   writeln('0. Terminar programa');
   writeln('1. Pasar a archivo binario');
-  writeln('2. Imprimir celulares con stock por debajo del mínimo');
+  writeln('2. Imprimir celulares con stock por debajo del minimo');
   writeln('3. Imprimir celulares con descripcion escrita por el usuario');
   writeln('4. Exportar a un archivo de texto');
   Repeat
-    write('Ingrese la opción a elegir: ');
+    write('Ingrese la opcion a elegir: ');
     readln(opc);
     If ((opc > 0) And (opc<5)) Then
       Begin

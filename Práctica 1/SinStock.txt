@@ -1,0 +1,7 @@
+--- LISTA DE CELULARES SIN STOCK ---
+104 950000  Apple
+0 4  iPhone 15 256GB negro
+iPhone 15
+10 800000 Samsung
+0 5 Multicolor
+Note 10 pro

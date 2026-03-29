@@ -136,11 +136,62 @@ Begin
   close(archCelulares);
 End;
 
+Procedure modificarStock(Var archivo : archivoBinario; nombre: String);
+
+Var 
+  cel: celular;
+  encontre: boolean;
+Begin
+  reset (archivo);
+  encontre := false;
+  While ((Not eof(archivo)) And (Not encontre)) Do
+    Begin
+      read(archivo,cel);
+      If (cel.nombre = nombre) Then
+        encontre := true;
+    End;
+  If (encontre) Then
+    Begin
+      write('Ingresa el nuevo stock: ');
+      readln(cel.stockDisp);
+      seek(archivo,FilePos(archivo)-1);
+      write(archivo,cel);
+    End
+  Else
+    writeln('No se encontro el celular');
+  close(archivo);
+End;
+
+Procedure exportarAArchivoDeTextoSinStock(Var archCelulares: archivoBinario);
+
+Var 
+  cel : celular;
+  sinStock: Text;
+Begin
+  assign(sinStock,'SinStock.txt');
+  rewrite(sinStock);
+  reset(archCelulares);
+  While (Not eof(archCelulares)) Do
+    Begin
+      read(archCelulares,cel);
+      If (cel.stockDisp = 0) Then
+        Begin
+          writeln(sinStock,cel.codigo,' ',cel.precio:0:0,' ',cel.marca);
+          writeln(sinStock,cel.stockDisp,' ', cel.stockMin, ' ',cel.descripcion);
+          writeln(sinStock,cel.nombre);
+        End;
+    End;
+  close(archCelulares);
+  close(sinStock);
+End;
+
+
 Var 
   celularesTxt: Text;
   archivoBinCelulares: archivoBinario;
   nombreArchivo: string;
   opc: Byte;
+  nombre: string;
 Begin
   //Para crear el archivo dado en el ejemplo
   assign(celularesTxt,'celulares.txt');
@@ -153,14 +204,15 @@ Begin
     writeln('---- OPCIONES ----');
     writeln('0. Terminar programa');
     writeln('1. Pasar a archivo binario');
-    writeln('2. Imprimir celulares con stock por debajo del mínimo');
+    writeln('2. Imprimir celulares con stock por debajo del minimo');
     writeln('3. Imprimir celulares con descripcion escrita por el usuario');
     writeln('4. Exportar a un archivo de texto');
     writeln('5. Agregar celulares');
-
+    writeln('6. Modificar stock de un celular');
+    writeln('7. Exportar a .txt aquellos celulares sin stock');
     write('Ingrese la opcion a elegir: ');
     readln(opc);
-    If ((opc > 0) And (opc<6)) Then
+    If ((opc > 0) And (opc<8)) Then
       Begin
         write('Ingresa el nombre del archivo: ');
         readln(nombreArchivo);
@@ -172,6 +224,13 @@ Begin
       //3: ???
       4: exportarAArchivoDeTexto(celularesTxt,archivoBinCelulares);
       5: agregarCelulares(archivoBinCelulares);
+      6:
+         Begin
+           write('Ingresa el nombre del celular cuyo stock desea modificar: ');
+           readln(nombre);
+           modificarStock(archivoBinCelulares,nombre);
+         End;
+      7: exportarAArchivoDeTextoSinStock(archivoBinCelulares);
     End;
   Until opc = 0;
 
