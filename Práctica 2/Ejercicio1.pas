@@ -39,7 +39,7 @@ Begin
       read(det,emp);
       writeln('Nombre: ',emp.nombre);
       writeln('Numero: ',emp.numero);
-      writeln('Total de comisiones: ',emp.comisiones:0:2);
+      writeln('Total de comisiones: $',emp.comisiones:0:2);
     End;
 End;
 
