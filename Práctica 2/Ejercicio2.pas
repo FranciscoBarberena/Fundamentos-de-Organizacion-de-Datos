@@ -19,24 +19,28 @@ Type
   archivoMaestro = file Of producto;
   archivoDetalle = file Of venta;
 
-Procedure leer(Var archivo: archivoDetalle; Var v: venta);
+Procedure leer(Var archivo: archivoDetalle; Var regd: venta);
 Begin
   If (Not(EOF(archivo))) Then
-    read(archivo,v)
-  Else v.code := valorAlto;
+    read(archivo,regd)
+  Else regd.code := valorAlto;
 End;
 
 Procedure imprimirMaestro(Var mae : archivoMaestro);
 
 Var 
-  p: producto;
+  regm: producto;
 Begin
-  writeln('--- ESTADO DEL MAESTRO ---');
+  reset(mae);
+  
   While Not eof(mae) Do
     Begin
-      Read(mae, p);
-      writeln('Codigo: ', p.code, ' | Producto: ', p.nombre, ' | Stock Actual: ', p.stockActual);
+      Read(mae, regm);
+      writeln('Codigo: ', regm.code, ' | Producto: ', regm.nombre, ' | Stock Actual: ', regm.stockActual);
     End;
+    writeln();
+
+  close(mae);
 End;
 
 Var 
@@ -45,34 +49,33 @@ Var
   regm : producto;
   regd: venta;
   codActual,ventasTotales : integer;
-  p : producto;
-  v: venta;
+
   archTxt: Text;
 Begin
   Assign(mae, 'maestro.dat');
 
   Rewrite(mae);
   //CREAR MAESTRO
-  p.code := 1;
-  p.nombre := 'Lavandina';
-  p.precio := 500.0;
-  p.stockActual := 100;
-  p.stockMinimo := 100;
-  Write(mae, p);
+  regm.code := 1;
+  regm.nombre := 'Lavandina';
+  regm.precio := 500.0;
+  regm.stockActual := 100;
+  regm.stockMinimo := 100;
+  Write(mae, regm);
 
-  p.code := 2;
-  p.nombre := 'Detergente';
-  p.precio := 300.0;
-  p.stockActual := 50;
-  p.stockMinimo := 10;
-  Write(mae, p);
+  regm.code := 2;
+  regm.nombre := 'Detergente';
+  regm.precio := 300.0;
+  regm.stockActual := 50;
+  regm.stockMinimo := 10;
+  Write(mae, regm);
 
-  p.code := 5;
-  p.nombre := 'Desodorante de Piso';
-  p.precio := 400.0;
-  p.stockActual := 80;
-  p.stockMinimo := 15;
-  Write(mae, p);
+  regm.code := 5;
+  regm.nombre := 'Desodorante de Piso';
+  regm.precio := 400.0;
+  regm.stockActual := 80;
+  regm.stockMinimo := 15;
+  Write(mae, regm);
 
   Close(mae);
 
@@ -81,18 +84,23 @@ Begin
   Rewrite(det);
 
   //Lavandina 1
-  v.code := 1;
-  v.unidades := 5;
-  Write(det, v);
+  regd.code := 1;
+  regd.unidades := 5;
+  Write(det, regd);
   //Lavandina 2
-  v.code := 1;
-  v.unidades := 10;
-  Write(det, v);
+  regd.code := 1;
+  regd.unidades := 10;
+  Write(det, regd);
   //Desodorante de piso
-  v.code := 5;
-  v.unidades := 20;
-  Write(det, v);
+  regd.code := 5;
+  regd.unidades := 20;
+  Write(det, regd);
   Close(det);
+
+  writeln('-- Maestro ANTES de la actualizacion --');
+  imprimirMaestro(mae);
+
+  //Resolucion del enunciado
 
   reset(mae);
   reset(det);
@@ -118,9 +126,8 @@ Begin
     End;
   close(mae);
   close(det);
-  reset(mae);
+  writeln('-- Maestro DESPUES de la actualizacion --');
   imprimirMaestro(mae);
-  Close(mae);
   Assign(archTxt,'stock_minimo.txt');
   rewrite(archTxt);
   reset(mae);
@@ -128,7 +135,7 @@ Begin
     Begin
       read(mae,regm);
       If (regm.stockActual<regm.stockMinimo) Then
-        writeln(archTxt,regm.nombre,' ',regm.code,' ',regm.stockActual,' ',regm.stockMinimo,' $',regm.precio:0:20);
+        writeln(archTxt,regm.nombre,' ',regm.code,' ',regm.stockActual,' ',regm.stockMinimo,' $',regm.precio:0:2);
     End;
   close(mae);
   close(archTxt);
