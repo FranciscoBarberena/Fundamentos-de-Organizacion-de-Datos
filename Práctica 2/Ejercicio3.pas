@@ -42,6 +42,8 @@ Begin
       leer(det2,regd2);
     End;
 End;
+//Procesos para datos de ejemplo
+
 Procedure imprimirMaestro();
 
 Var p : provincia;
@@ -73,7 +75,7 @@ Begin
   Rewrite(det1);
   Rewrite(det2);
 
-    { --- CARGA DEL MAESTRO --- }
+//Datos de ejemplo
   regm.nombre := 'Buenos Aires';
   regm.cantAlfabetizados := 5000;
   regm.cantEncuestados := 6000;
@@ -88,7 +90,6 @@ Begin
   Write(mae, regm);
   Close(mae);
 
-    { --- CARGA DEL DETALLE 1 --- }
   regd1.prov := 'Buenos Aires';
   regd1.localidad := 'La Plata';
   regd1.cantAlfabetizados := 100;
@@ -101,7 +102,6 @@ Begin
   Write(det1, regd1);
   Close(det1);
 
-    { --- CARGA DEL DETALLE 2 --- }
   regd2.prov := 'Buenos Aires';
   regd2.localidad := 'Mar del Plata';
   regd2.cantAlfabetizados := 200;
@@ -117,8 +117,7 @@ Begin
   writeln('Maestro ANTES de la actualizacion: ');
   imprimirMaestro();
 
-  //RESOLUCION DEL ENUNCIADO
-
+  //Resolucion del enunciado
   reset(det1);
   reset(det2);
   reset(mae);

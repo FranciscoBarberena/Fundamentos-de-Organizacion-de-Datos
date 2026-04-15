@@ -49,12 +49,10 @@ Begin
 
       If (i = 2) Then
         Begin
-        { Usuario 1, mismo día que la máquina 1. Debería sumar 3.5 en total }
           v.code := 1;
           v.date := '2026-04-10';
           v.time := 1.0;
           write(detalles[i], v);
-        { Usuario 1, día distinto. Genera nuevo registro }
           v.code := 1;
           v.date := '2026-04-11';
           v.time := 3.0;
@@ -63,7 +61,6 @@ Begin
 
       If (i = 3) Then
         Begin
-        { Usuario 2, fecha anterior a la de la máquina 1. Prueba el ordenamiento del minimo }
           v.code := 2;
           v.date := '2026-04-05';
           v.time := 5.0;
@@ -72,7 +69,6 @@ Begin
 
       If (i = 4) Then
         Begin
-        { Usuario 2, mismo día que la máquina 1. Sumará con el 1.5 de arriba }
           v.code := 2;
           v.date := '2026-04-12';
           v.time := 2.0;
@@ -85,7 +81,6 @@ Begin
 
       If (i = 5) Then
         Begin
-        { Usuario 3, mismo día }
           v.code := 3;
           v.date := '2026-04-15';
           v.time := 0.5;

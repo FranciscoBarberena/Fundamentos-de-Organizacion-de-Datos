@@ -102,8 +102,11 @@ Begin
     End;
   close(mae);
 End;
+
+//Procesos para datos de ejemplo
+
 Procedure generarDatos(Var mae: archivoMaestro; Var detalles: vectorDetalles);
-//PARA PROBAR CODIGO
+
 
 Var 
   i : integer;

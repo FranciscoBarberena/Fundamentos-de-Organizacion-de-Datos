@@ -52,7 +52,8 @@ Begin
   Else min := cLegajo;
 End;
 
-{ --- PROCEDIMIENTOS DE PRUEBA --- }
+//Procesos para datos de ejemplo
+
 Procedure generarDatosDePrueba(Var mae: archivoMaestro; Var detCursadas: archivoCursadas; Var detFinales: archivoFinales);
 
 Var 
@@ -60,7 +61,7 @@ Var
   c: cursada;
   f: final;
 Begin
-  { 1. Crear Maestro }
+//maestro
   Rewrite(mae);
   a.legajo := 100;
   a.apellido := 'Perez';
@@ -82,47 +83,47 @@ Begin
   Write(mae, a);
   Close(mae);
 
-  { 2. Crear Detalle de Cursadas }
+//detalle cursadas
   Rewrite(detCursadas);
   c.legajo := 100;
   c.materia := 1;
   c.year := 2025;
   c.aprobada := true;
-  Write(detCursadas, c);  { Suma 1 a Juan }
+  Write(detCursadas, c);  
   c.legajo := 100;
   c.materia := 2;
   c.year := 2025;
   c.aprobada := false;
-  Write(detCursadas, c); { No suma }
+  Write(detCursadas, c);
   c.legajo := 300;
   c.materia := 1;
   c.year := 2025;
   c.aprobada := true;
-  Write(detCursadas, c);  { Suma 1 a Luis }
+  Write(detCursadas, c);  
   c.legajo := 300;
   c.materia := 2;
   c.year := 2026;
   c.aprobada := true;
-  Write(detCursadas, c);  { Suma 1 a Luis }
+  Write(detCursadas, c); 
   Close(detCursadas);
 
-  { 3. Crear Detalle de Finales }
+// detalle finales
   Rewrite(detFinales);
   f.legajo := 100;
   f.materia := 3;
   f.fecha := '10/02/2026';
   f.nota := 7;
-  Write(detFinales, f); { Suma 1 a Juan }
+  Write(detFinales, f);
   f.legajo := 200;
   f.materia := 4;
   f.fecha := '15/02/2026';
   f.nota := 9;
-  Write(detFinales, f); { Suma 1 a Ana }
+  Write(detFinales, f); 
   f.legajo := 200;
   f.materia := 5;
   f.fecha := '12/03/2026';
   f.nota := 2;
-  Write(detFinales, f); { No suma }
+  Write(detFinales, f); 
   Close(detFinales);
 End;
 

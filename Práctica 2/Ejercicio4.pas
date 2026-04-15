@@ -84,7 +84,7 @@ Begin
       Assign(detalles[i], 'Detalle ' + numStr + '.dat');
       Rewrite(detalles[i]);
 
-    {Solo pruebo con 3 detalles }
+    //Datos de ejemplo en 3 detalles
       If (i = 1) Then
         Begin
           regd.code := 1;
@@ -117,7 +117,6 @@ Var
   regm: producto;
 Begin
   reset(mae);
-  { Recorremos hasta el final }
   While Not eof(mae) Do
     Begin
       read(mae, regm);
@@ -138,7 +137,7 @@ Var
   min: venta;
   i: integer;
 Begin
-  { --- CREAR MAESTRO --- }
+//Crea maestro con datos de ejemplo
   Assign(mae, 'maestro.dat');
   Rewrite(mae);
   regm.code := 1;
@@ -154,7 +153,7 @@ Begin
   regm.stockDisponible := 40;
   regm.stockMinimo := 60;
   regm.precio := 2000.0;
-  Write(mae, regm); { Ya está por debajo del mínimo }
+  Write(mae, regm); 
   regm.code := 5;
   regm.nombre := 'Helado Menta';
   regm.descripcion := 'Pote 1kg';
@@ -167,12 +166,10 @@ Begin
   crearDetalles;
   writeln('Maestro ANTES de la actualizacion: ');
   imprimirMaestro(mae);
+
+
   //Resolución del enunciado
-
   reset(mae);
-
-
-
   For i:= 1 To cantDetalles Do
     Begin
       reset(detalles[i]);
@@ -199,6 +196,9 @@ Begin
   imprimirMaestro(mae);
   Assign(archTxt,'stockFaltante.txt');
   crearTxt;
-  //Es mejor crearlo despues. Si lo creas mientras actualizas el maestro, aquellos archivos que estén en el maestro pero no en los detalles se van a saltear
+  {Aunque crear el .txt durante el recorrido hace que recorras una sola vez el maestro, tiene sus desventajas.
+   Si lo creas mientras actualizas el maestro, aquellos productos que estén en el maestro pero no en los detalles se van a saltear. 
+  Tendrías que agregarlos al .txt dentro del bulce While (regm.code<min.code) a aquellos que no están en los detalles, y luego fuera del While (min.code = regm.code) a aquellos que sí}
+ 
 
 End.

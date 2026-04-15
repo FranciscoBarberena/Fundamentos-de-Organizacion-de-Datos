@@ -25,7 +25,7 @@ Begin
     read(archivo,regd)
   Else regd.code := valorAlto;
 End;
-
+//Procesos para datos de ejemplo
 Procedure imprimirMaestro(Var mae : archivoMaestro);
 
 Var 
@@ -83,15 +83,12 @@ Begin
   Assign(det, 'detalle.dat');
   Rewrite(det);
 
-  //Lavandina 1
   regd.code := 1;
   regd.unidades := 5;
   Write(det, regd);
-  //Lavandina 2
   regd.code := 1;
   regd.unidades := 10;
   Write(det, regd);
-  //Desodorante de piso
   regd.code := 5;
   regd.unidades := 20;
   Write(det, regd);

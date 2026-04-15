@@ -79,7 +79,8 @@ Begin
     End;
 End;
 
-{ --- Datos para poder probar con archivos de ejemplo --- }
+//Procesos para datos de ejemplo
+
 Procedure generarDatosDePrueba(Var mae: archivoMaestro; Var detalles: vectorDetalles);
 
 Var 
@@ -87,7 +88,7 @@ Var
   regd: log;
   i: integer;
 Begin
-  { 1. Generar el maestro }
+//maestro
   Rewrite(mae);
   regm.code := 1;
   regm.nombre := 'Buenos Aires';
@@ -111,7 +112,7 @@ Begin
   Write(mae, regm);
   Close(mae);
 
-  { 2. Generar los 16 detalles }
+//detalles
   For i := 1 To cantDetalles Do
     Begin
       Rewrite(detalles[i]);

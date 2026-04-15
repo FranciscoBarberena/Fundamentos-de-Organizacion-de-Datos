@@ -19,6 +19,8 @@ Begin
   Else
     dato.numero := valoralto;
 End;
+
+//Procesos para generar datos de ejemplo
 Procedure GrabarEmpleado(Var arch: archivo; num: integer; com: real; nom: String);
 
 Var 
