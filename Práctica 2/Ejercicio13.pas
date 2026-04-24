@@ -74,7 +74,7 @@ Begin
 
   While (regm.numUsuario <> valorAlto) Do
     Begin
-      
+
       cantMails := 0;
       While (regm.numUsuario = regd.numUsuario) Do
         Begin
@@ -89,6 +89,44 @@ Begin
   close(mae);
 End;
 
+Procedure actualizarMaestroYGenerarInforme( Var mae: archivoMaestro; Var det: archivoDetalle; Var txt: Text);
+
+Var 
+  regm: registroMaestro;
+  regd: registroDetalle;
+  mailsHoy: integer;
+Begin
+
+  rewrite(txt);
+  reset(mae);
+  reset(det);
+  leerMae(mae,regm);
+  leerDet(det,regd);
+
+  While (regm.numUsuario <> valorAlto) Do
+    Begin
+      mailsHoy := 0;
+      While (regm.numUsuario = regd.numUsuario) Do
+        Begin
+          mailsHoy := mailsHoy + 1;
+          leerDet(det, regd);
+        End;
+      writeln(txt, 'num_usuario ', regm.numUsuario, '..............', mailsHoy);
+      If (mailsHoy > 0) Then
+        Begin
+          regm.cantidadMails := regm.cantidadMails + mailsHoy;
+          seek(mae, filePos(mae) - 1);
+          write(mae, regm);
+        End;
+      leerMae(mae, regm);
+    End;
+  close(det);
+  close(txt);
+  close(mae);
+
+End;
+
+
 Var 
   mae: archivoMaestro;
   det: archivoDetalle;
@@ -99,4 +137,5 @@ Begin
   Assign(txt,'informe.txt');
   actualizarMaestro(mae,det);
   generarInforme(txt,det,mae);
+  //actualizarMaestroYGenerarInforme(mae,det,txt);
 End.
