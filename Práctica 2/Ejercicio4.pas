@@ -196,9 +196,6 @@ Begin
   imprimirMaestro(mae);
   Assign(archTxt,'stockFaltante.txt');
   crearTxt;
-  {Aunque crear el .txt durante el recorrido hace que recorras una sola vez el maestro, tiene sus desventajas.
-   Si lo creas mientras actualizas el maestro, aquellos productos que estén en el maestro pero no en los detalles se van a saltear. 
-  Tendrías que agregarlos al .txt dentro del bulce While (regm.code<min.code) a aquellos que no están en los detalles, y luego fuera del While (min.code = regm.code) a aquellos que sí}
  
 
 End.
