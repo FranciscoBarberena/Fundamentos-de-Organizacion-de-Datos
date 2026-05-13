@@ -84,6 +84,8 @@ Begin
   writeln('====================================================');
 
 End;
+
+//Proceso para poder probar codigo
 Procedure generarDatosDePrueba(Var mae: archivoMaestro);
 
 Var 
