@@ -1,0 +1,3 @@
+# Ejercicio 1
+
+- El hashing es un método a través del cual, a cada llave primaria de un archivo, se le asigna una dirección que se define en funcion de la clave. De esta manera, tener las direcciones no requiere de almacenamiento extra. Este método logra que el acceso a un registro de un archivo se haga directamente O(1) en promedio. Su principal desventaja es que, aunque el acceso a un registro rápidamente a través de su clave, no permite recuperar la información ordenadamente. Se relaciona con el concepto de archivos porque la direccion que se obtiene luego de aplicarle la funcion a una clave, es en realidad un "bucket" de disco duro, en donde se almacenan los archivos. 
