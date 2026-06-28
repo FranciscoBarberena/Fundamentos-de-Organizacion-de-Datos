@@ -6,7 +6,7 @@
 ## Cantidad mínima de claves por nodo (ejercicios 10 y 12)
 - La fórmula es $(M / 2) - 1$. La división es entera así que se redondea para abajo. En el caso de orden 5 sería  $(5/2) - 1 = 1$. En los puntos 10 y 12, con orden 5, yo había redondeado para arriba y me quedó mínimo de claves = 2. Esto en su momento estaba **MAL** según la cátedra, aunque si los buscás en internet a veces aparece que se hace redondeando para arriba. **RECOMIENDO CONSULTARLE A SUS PROFES.**
 
-## Redistrbución con órdenes 5 y 6 (ejercicios 9 y 16)
+## Redistribución con órdenes 5 y 6 (ejercicios 9 y 16)
 - En 2026, la cátedra dictaba que al realizar una distribución con un hermano, las claves tienen que quedar repartidas de la manera *más equitativa posible*. Esto puede generar errores en los ejercicios con órdenes 5 y 6, en los que hay un caso de underflow, y el hermano con el que se redistribuye está lleno.
     - *Ejemplo orden 5*: Luego de una baja en un árbol de orden 5, el nodo A queda con 0 claves (*underflow*). Tiene que redistribuir con el hermano (nodo B). Si el nodo B tiene 4 claves, tendrían que quedar las claves equitativamente repartidas luego de la redistribución. Por lo tanto, quedarían 2 claves en el nodo A y 2 claves en el nodo B. Habría también que cambiar la clave separadora del padre para mantener el orden del árbol. 
 
