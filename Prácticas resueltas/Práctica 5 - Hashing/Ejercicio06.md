@@ -4,7 +4,7 @@
     - Una vez que se produce overflow en un bucket, se avanza en el archivo hasta encontrar el nodo más cercano que está libre. Se asigna ese nodo a la clave que produjo overflow.
     - *Problema:* genera áreas de overflow. Los buckets "al final" del archivo reciben más claves, porque, además de recibir sus claves nativas, pueden recibir claves nativas a cualquier otro bloque en el que se haya producido overflow. Esto hace que la distribución de claves no sea uniforme.
 - **Saturación progresiva encadenada**
-    - Similar al primer método, con una única diferencia. Una vez que la clave que produjo overflow se almacenó en el bucket más cercano, en el bucket "nativo" se almacena un enlace a dicho bucket cercano, para poder acceder a la clave sin tener que pasar por todos los buckets del medio. Es ligeramente mejor que la saturación progresiva, pero sigue tieniendo el mismo problema, ya que genera áreas de overflow también.
+    - Similar al primer método, con una única diferencia. Una vez que la clave que produjo overflow se almacenó en el bucket más cercano, en el bucket "nativo" se almacena un enlace a dicho bucket cercano, para poder acceder a la clave sin tener que pasar por todos los buckets del medio. Es ligeramente mejor que la saturación progresiva, pero sigue teniendo el mismo problema, ya que genera áreas de overflow también.
 - **Saturación progresiva encadenada con área de desborde separada**
     - Se define el mayor número primo que sea menor a la cantidad de buckets.
     - *Ejemplo:* 2500 buckets, el mayor primo menor a 2500 es 2477.
