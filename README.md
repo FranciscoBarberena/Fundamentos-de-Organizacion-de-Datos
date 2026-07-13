@@ -10,7 +10,7 @@
 ## Prácticas
 
 - [Práctica 1 - Archivos Secuenciales](https://github.com/FranciscoBarberena/Fundamentos-de-Organizacion-de-Datos/tree/main/Pr%C3%A1cticas%20resueltas/Pr%C3%A1ctica%201%20-%20Archivos%20Secuenciales)
-- [Práctica 2 - Archivos Serie](https://github.com/FranciscoBarberena/Fundamentos-de-Organizacion-de-Datos/tree/main/Pr%C3%A1cticas%20resueltas/Pr%C3%A1ctica%202%20-%20Archivos%20Serie)
+- [Práctica 2 - Archivos Secuenciales 2](https://github.com/FranciscoBarberena/Fundamentos-de-Organizacion-de-Datos/tree/main/Pr%C3%A1cticas%20resueltas/Pr%C3%A1ctica%202%20-%20Archivos%20Secuenciales%202)
 - [Práctica 3 - Bajas](https://github.com/FranciscoBarberena/Fundamentos-de-Organizacion-de-Datos/tree/main/Pr%C3%A1cticas%20resueltas/Pr%C3%A1ctica%203%20-%20Bajas)
 - [Práctica 4 - Árboles B y B+](https://github.com/FranciscoBarberena/Fundamentos-de-Organizacion-de-Datos/tree/main/Pr%C3%A1cticas%20resueltas/Pr%C3%A1ctica%204%20-%20%C3%81rboles%20B%20y%20B%2B)
     - [**LEER CORRECCIONES ANTES DE CONSULTAR!!**](https://github.com/FranciscoBarberena/Fundamentos-de-Organizacion-de-Datos/tree/main/Pr%C3%A1cticas%20resueltas/Pr%C3%A1ctica%204%20-%20%C3%81rboles%20B%20y%20B%2B#readme)
