@@ -1,6 +1,7 @@
 # Fundamentos de Organización de Datos
 
 - Prácticas y parciales resueltos de Fundamentos de Organización de Datos (cursada en el año 2026)
+- [Programa de la materia](https://github.com/FranciscoBarberena/Fundamentos-de-Organizacion-de-Datos/blob/main/ProgramaDeLaMateria.pdf)
 
 ## Parciales
 
@@ -17,9 +18,9 @@
 - [Práctica 5 - Hashing](https://github.com/FranciscoBarberena/Fundamentos-de-Organizacion-de-Datos/tree/main/Pr%C3%A1cticas%20resueltas/Pr%C3%A1ctica%205%20-%20Hashing)
 
 
-## Explicaciones
+## Diapositivas
 
-- [Expicaciones teóricas](https://github.com/FranciscoBarberena/Fundamentos-de-Organizacion-de-Datos/tree/main/Diapositivas/Explicaciones%20te%C3%B3ricas)
+- [Explicaciones teóricas](https://github.com/FranciscoBarberena/Fundamentos-de-Organizacion-de-Datos/tree/main/Diapositivas/Explicaciones%20te%C3%B3ricas)
 - [Explicaciones prácticas](https://github.com/FranciscoBarberena/Fundamentos-de-Organizacion-de-Datos/tree/main/Diapositivas/Explicaciones%20pr%C3%A1cticas)
 
 ## Resumen
