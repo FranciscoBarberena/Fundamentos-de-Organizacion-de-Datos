@@ -22,6 +22,10 @@
 - [Expicaciones teóricas](https://github.com/FranciscoBarberena/Fundamentos-de-Organizacion-de-Datos/tree/main/Diapositivas/Explicaciones%20te%C3%B3ricas)
 - [Explicaciones prácticas](https://github.com/FranciscoBarberena/Fundamentos-de-Organizacion-de-Datos/tree/main/Diapositivas/Explicaciones%20pr%C3%A1cticas)
 
+## Resumen
+
+- [Resumen de la materia](https://github.com/FranciscoBarberena/Fundamentos-de-Organizacion-de-Datos/blob/main/Resumen%20de%20la%20teor%C3%ADa/Resumen%20FOD%20-%20Teor%C3%ADa.pdf) basado en el libro "Introducción a las Bases de Datos" de Bertone y Thomas.
+
 
 ## Cafecito
 
